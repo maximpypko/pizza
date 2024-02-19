@@ -1,19 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { mockItemData } from './utils/mock-data';
+import ItemPizza from './components/ItemPizza';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello World</Text>
-      <StatusBar style="auto" />
+      <ItemPizza item={mockItemData} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    padding: 10,
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#DFF3E8',
     alignItems: 'center',
     justifyContent: 'center',
   },
