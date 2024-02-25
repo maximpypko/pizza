@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { colors } from '../utils/colors';
+import ButtonWrapper from './ButtonWrapper';
 
 const ItemPizza = ({ item }) => {
     const { title, isNew, image } = item;
@@ -13,6 +15,7 @@ const ItemPizza = ({ item }) => {
     onPressButtonBuy = () => {
         console.warn('You have added an item to your cart')
     }
+
     return (
         <View style={styles.container}>
             <View style={styles.itemImage}>
@@ -26,9 +29,9 @@ const ItemPizza = ({ item }) => {
             <View style={styles.info}>
                 <View style={styles.header}>
                     <Text style={styles.title}>{title}</Text>
-                    <Pressable onPress={onPressButtonHeart}>
+                    <ButtonWrapper onPress={onPressButtonHeart} isCustomStyle={false} isRipple={false}>
                         <AntDesign name={isFavorites ? "heart" : "hearto"} size={22} color="red" />
-                    </Pressable>
+                    </ButtonWrapper>
                 </View>
                 <View style={styles.prices}>
                     {isNew && <Text style={styles.newPrices}>New Price</Text>}
@@ -38,12 +41,10 @@ const ItemPizza = ({ item }) => {
                     <Text style={styles.description} numberOfLines={1} ellipsizeMode="tail">
                         Juicy pizza with thin crispy crust, generously topped with fresh ingredients.
                     </Text>
-                    <View style={styles.buttonBuy}>
-                        <Pressable onPress={onPressButtonBuy}>
-                            <Text style={styles.description}>Buy</Text>
-                        </Pressable>
+                    <ButtonWrapper onPress={onPressButtonBuy} style={styles.buttonBuy}>
+                        <Text style={styles.description}>Buy</Text>
                         <MaterialCommunityIcons name="cart-variant" size={24} color="black" />
-                    </View>
+                    </ButtonWrapper>
                 </View>
             </View>
         </View>
@@ -54,16 +55,19 @@ export default ItemPizza;
 
 const styles = StyleSheet.create({
     container: {
-        width: "100%",
+        width: "calc(100% - 20px)",
         padding: 12,
         flexDirection: 'row',
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 10,
         gap: 15,
-        backgroundColor: "#B9CAC1",
+        backgroundColor: colors.itemPizzaBgColor,
         borderWidth: 1,
         borderStyle: "solid",
-        borderColor: "#4B4F56",
+        borderColor: colors.mainBorderColor,
         borderRadius: 5,
-        shadowColor: 'black',
+        shadowColor: colors.shadowColor,
         shadowOffset: {
             width: 1,
             height: 4
@@ -84,10 +88,10 @@ const styles = StyleSheet.create({
         paddingRight: 5,
         paddingBottom: 3,
         paddingLeft: 5,
-        backgroundColor: '#DFF3E8',
+        backgroundColor: colors.mainBgColor,
         borderWidth: 1,
         borderStyle: "solid",
-        borderColor: "#4B4F56",
+        borderColor: colors.mainBorderColor,
         borderRadius: 15,
         fontSize: 11,
         overflow: 'hidden'
@@ -114,13 +118,6 @@ const styles = StyleSheet.create({
     favoritesContainer: {
         width: 45,
         height: 45
-    },
-    favorites: {
-        borderWidth: 1,
-        borderStyle: "solid",
-        borderColor: "#4B4F56",
-        width: 33,
-        height: 33
     },
     prices: {
         flexDirection: 'row',
