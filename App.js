@@ -1,38 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   StyleSheet,
   Text,
   View,
   FlatList,
-  ScrollView,
   TextInput,
   Modal,
   TouchableWithoutFeedback,
+  RefreshControl,
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import { AntDesign } from "@expo/vector-icons";
-import { mockItemsData } from "./utils/mock-data";
+import { mockItemsData, refreshMockItemsData } from "./utils/mock-data";
 import ItemPizza from "./components/ItemPizza";
 import ButtonWrapper from "./components/ButtonWrapper";
 import { colors } from "./utils/colors";
+import { widthSlider } from "./utils/widthSlider";
+import Slide from "./components/Slide";
+import SliderModal from "./components/SliderModal";
 
 export default function App() {
   const initialFilters = {
     isNew: false,
+    limit: 10,
+    page: 1,
   };
-  const [isVisibleModal, setIsVisibleModal] = useState(false);
+  const [isVisibleSliderModal, setIsVisibleSliderModal] = useState(false);
   const [isVisibleInputSearch, setIsVisibleInputSearch] = useState(false);
   const [isVisibleFilterModal, setIsVisibleFilterModal] = useState(false);
-  const [filteredItems, setFilteredItems] = useState(mockItemsData);
+  const [filteredItems, setFilteredItems] = useState([]);
   const [filters, setFilters] = useState(initialFilters);
   const [inputValue, setInputValue] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
+  const [sliderData, setSliderData] = useState({});
 
   useEffect(() => {
-    changeFilteredItemsState();
-  }, [inputValue, filters]);
+    onEndReached();
+  }, []);
 
-  const handleModal = () => {
-    setIsVisibleModal(!isVisibleModal);
+  const handleSliderModal = () => {
+    setIsVisibleSliderModal(!isVisibleSliderModal);
+    if (!isVisibleSliderModal) {
+    } else {
+      setSliderData({});
+    }
   };
 
   const handleFilterModal = () => {
@@ -45,29 +56,54 @@ export default function App() {
 
   const onChangeInputSearch = (value) => {
     setInputValue(value);
+    changeFilteredItemsState("inputValue", value);
   };
 
   const handleFilters = (filterName, value) => {
-    setFilters({ [filterName]: value });
+    setFilters((prev) => ({ ...prev, [filterName]: value }));
+    changeFilteredItemsState("filter", value, filterName);
   };
 
-  const changeFilteredItemsState = () => {
-    const filteredItems = mockItemsData.filter((item) => {
-      let isTitleMatch = true;
-      let isNewMatch = true;
+  const changeFilteredItemsState = (name, value, filterName) => {
+    let newFilteredItems;
+    if (name === "inputValue") {
+      newFilteredItems = mockItemsData.filter((item) =>
+        item.title.toLowerCase().startsWith(value.toLowerCase())
+      );
+    }
 
-      if (inputValue) {
-        isTitleMatch = item.title
-          .toLowerCase()
-          .startsWith(inputValue.toLowerCase());
-      }
-      if (filters.isNew) {
-        isNewMatch = item.isNew;
-      }
+    if (name === "filter") {
+      newFilteredItems = mockItemsData.filter((item) =>
+        value ? item[filterName] === value : item
+      );
+    }
 
-      return isTitleMatch && isNewMatch;
-    });
-    setFilteredItems(filteredItems);
+    setFilteredItems(newFilteredItems);
+  };
+
+  const onEndReached = () => {
+    const { limit, page } = filters;
+    const firstIndex = page === 1 ? 0 : (page - 1) * limit;
+    const lastIndex = limit * page;
+    const newArr = mockItemsData.slice(firstIndex, lastIndex);
+
+    setFilteredItems((prev) => [...prev, ...newArr]);
+    setFilters((prev) => ({ ...prev, page: prev.page + 1 }));
+  };
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      if (refreshMockItemsData[0]?.id !== filteredItems[0]?.id) {
+        setFilteredItems([...refreshMockItemsData, ...filteredItems]);
+      }
+      setRefreshing(false);
+    }, 3000);
+  }, []);
+
+  const onPressItemPizza = (item) => {
+    setSliderData(item);
+    handleSliderModal();
   };
 
   return (
@@ -84,7 +120,7 @@ export default function App() {
           ) : null}
           <ButtonWrapper
             style={styles.buttonHearth}
-            onPress={handleModal}
+            onPress={handleSliderModal}
             isCustomStyle={false}
             isRipple={false}
           >
@@ -106,28 +142,32 @@ export default function App() {
       {filteredItems.length ? (
         <FlatList
           data={filteredItems}
-          renderItem={({ item, index }) => <ItemPizza item={item} />}
+          renderItem={({ item, index }) => (
+            <ItemPizza
+              item={item}
+              onPressItemPizza={onPressItemPizza}
+              disabledItemPizza={sliderData?.length > 0}
+            />
+          )}
           keyExtractor={(item) => item.id}
           style={styles.itemsWrapper}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+          initialNumToRender={10}
+          onEndReached={onEndReached}
+          onEndReachedThreshold={0.4}
         />
       ) : (
         <Text>No data</Text>
       )}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isVisibleModal}
-        onRequestClose={handleModal}
-      >
-        <TouchableWithoutFeedback onPress={handleModal}>
-          <View style={styles.modalOverlay} />
-        </TouchableWithoutFeedback>
-        <View style={styles.modal}>
-          <ButtonWrapper onPress={handleModal}>
-            <Text>Close Modal</Text>
-          </ButtonWrapper>
-        </View>
-      </Modal>
+      {isVisibleSliderModal ? (
+        <SliderModal
+          handleSliderModal={handleSliderModal}
+          sliderData={sliderData}
+        />
+      ) : null}
+
       <Modal
         animationType="slide"
         transparent={true}
@@ -191,18 +231,6 @@ const styles = StyleSheet.create({
   },
   itemsWrapper: {
     width: "100%",
-  },
-  modalOverlay: {
-    flex: 1,
-  },
-  modal: {
-    height: "50%",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.modalBgColor,
-    marginTop: "auto",
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
   },
   filterModal: {
     position: "absolute",
