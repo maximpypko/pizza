@@ -1,17 +1,33 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Share,
+} from "react-native";
 import { widthSlider } from "../utils/widthSlider";
 
 const Slide = ({ slide }) => {
   return (
-    <View style={styles.slide}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: slide.uri,
-        }}
-      />
-    </View>
+    <TouchableOpacity
+      onPress={() => {
+        Share.share({
+          url: slide.uri,
+          message: slide.uri,
+        });
+      }}
+    >
+      <View style={styles.slide}>
+        <Image
+          style={styles.image}
+          source={{
+            uri: slide.uri,
+          }}
+        />
+      </View>
+    </TouchableOpacity>
   );
 };
 
