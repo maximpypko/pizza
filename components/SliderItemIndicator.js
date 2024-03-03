@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.buttonBgColor,
   },
   isActive: {
-    backgroundColor: colors.mainBgColor,
+    backgroundColor: colors.iconsColor,
   },
 });
