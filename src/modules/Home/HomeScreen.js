@@ -11,12 +11,12 @@ import {
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import { AntDesign } from "@expo/vector-icons";
-import { mockItemsData, refreshMockItemsData } from "../../../utils/mock-data";
-import ItemPizza from "../../..//components/ItemPizza";
-import ButtonWrapper from "../../..//components/ButtonWrapper";
-import { colors } from "../../..//utils/colors";
-import { widthSlider } from "../../..//utils/widthSlider";
-import Slide from "../../..//components/Slide";
+import { mockItemsData, refreshMockItemsData } from "../../utils/mock-data";
+import ItemPizza from "../../components/ItemPizza";
+import ButtonWrapper from "../../components/ButtonWrapper";
+import { colors } from "../../utils/colors";
+import { widthSlider } from "../../utils/widthSlider";
+import Slide from "../../components/Slide";
 
 const HomeScreen = ({ navigation }) => {
   const initialFilters = {

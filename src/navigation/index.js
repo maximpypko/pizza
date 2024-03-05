@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 import HomeScreen from "../modules/Home/HomeScreen";
 import SettingsScreen from "../modules/Settings/SettingsScreen";
-import { colors } from "../../utils/colors";
+import { colors } from "../utils/colors";
 import { StyleSheet } from "react-native";
 import HomeStack from "./HomeStack";
 

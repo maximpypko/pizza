@@ -7,11 +7,11 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from "react-native";
-import { colors } from "../../../utils/colors";
-import { widthSlider } from "../../../utils/widthSlider";
-import ButtonWrapper from "../../../components/ButtonWrapper";
-import Slide from "../../../components/Slide";
-import SliderItemIndicator from "../../../components/SliderItemIndicator";
+import { colors } from "../../utils/colors";
+import { widthSlider } from "../../utils/widthSlider";
+import ButtonWrapper from "../../components/ButtonWrapper";
+import Slide from "../../components/Slide";
+import SliderItemIndicator from "../../components/SliderItemIndicator";
 
 const FavoritesScreen = ({ route }) => {
   const { favoritesItems } = route.params;
