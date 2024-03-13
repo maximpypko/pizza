@@ -9,21 +9,22 @@ import {
 } from "react-native";
 import { widthSlider } from "../utils/widthSlider";
 
-const Slide = ({ slide }) => {
+const Slide = ({ item }) => {
   return (
     <TouchableOpacity
       onPress={() => {
         Share.share({
-          url: slide.uri,
-          message: slide.uri,
+          url: item.image,
+          message: item.image,
         });
       }}
     >
       <View style={styles.slide}>
+        <Text style={styles.title}>{item.title}</Text>
         <Image
           style={styles.image}
           source={{
-            uri: slide.uri,
+            uri: item.image,
           }}
         />
       </View>

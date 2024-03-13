@@ -1,6 +1,7 @@
 export const mockItemsData = [
   {
     title: "Pizza Paperoni",
+    description: "Classic pepperoni pizza with mushrooms and bell peppers.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
@@ -20,6 +21,7 @@ export const mockItemsData = [
   },
   {
     title: "Margherita Pizza",
+    description: "Traditional margherita pizza with fresh tomatoes and basil.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
@@ -39,6 +41,7 @@ export const mockItemsData = [
   },
   {
     title: "Vegetarian Pizza",
+    description: "Colorful vegetarian pizza with a variety of veggies.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
@@ -58,6 +61,7 @@ export const mockItemsData = [
   },
   {
     title: "Hawaiian Pizza",
+    description: "Tropical Hawaiian pizza with ham and pineapple",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
@@ -77,6 +81,7 @@ export const mockItemsData = [
   },
   {
     title: "BBQ Chicken Pizza",
+    description: "Smoky barbecue chicken pizza with onions and peppers.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
@@ -107,6 +112,7 @@ export const mockItemsData = [
   },
   {
     title: "Supreme Pizza",
+    description: "Supreme pizza loaded with assorted toppings.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
@@ -126,6 +132,7 @@ export const mockItemsData = [
   },
   {
     title: "Mushroom Pizza",
+    description: "Mushroom lover delight with a mix of varieties.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
@@ -145,6 +152,8 @@ export const mockItemsData = [
   },
   {
     title: "Four Cheese Pizza",
+    description: "Rich and indulgent pizza topped with four cheeses.",
+
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
@@ -164,6 +173,7 @@ export const mockItemsData = [
   },
   {
     title: "Pepperoni and Mushroom Pizza",
+    description: "Perfect combination of pepperoni and mushrooms.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
@@ -183,6 +193,7 @@ export const mockItemsData = [
   },
   {
     title: "Spinach and Feta Pizza",
+    description: "Healthy and flavorful spinach and feta pizza.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
@@ -202,6 +213,7 @@ export const mockItemsData = [
   },
   {
     title: "Pizza Paperoni",
+    description: "Classic pepperoni pizza with mushrooms and bell peppers.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
@@ -221,6 +233,7 @@ export const mockItemsData = [
   },
   {
     title: "Margherita Pizza",
+    description: "Traditional margherita pizza with fresh tomatoes and basil.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
@@ -240,6 +253,7 @@ export const mockItemsData = [
   },
   {
     title: "Vegetarian Pizza",
+    description: "Colorful vegetarian pizza with a variety of veggies.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
@@ -259,6 +273,7 @@ export const mockItemsData = [
   },
   {
     title: "Hawaiian Pizza",
+    description: "Tropical Hawaiian pizza with ham and pineapple",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
@@ -278,6 +293,7 @@ export const mockItemsData = [
   },
   {
     title: "BBQ Chicken Pizza",
+    description: "Smoky barbecue chicken pizza with onions and peppers.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
@@ -297,6 +313,7 @@ export const mockItemsData = [
   },
   {
     title: "Supreme Pizza",
+    description: "Supreme pizza loaded with assorted toppings.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
@@ -316,6 +333,7 @@ export const mockItemsData = [
   },
   {
     title: "Mushroom Pizza",
+    description: "Mushroom lover delight with a mix of varieties.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
@@ -335,6 +353,8 @@ export const mockItemsData = [
   },
   {
     title: "Four Cheese Pizza",
+    description: "Rich and indulgent pizza topped with four cheeses.",
+
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
@@ -354,6 +374,7 @@ export const mockItemsData = [
   },
   {
     title: "Pepperoni and Mushroom Pizza",
+    description: "Perfect combination of pepperoni and mushrooms.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
@@ -373,6 +394,7 @@ export const mockItemsData = [
   },
   {
     title: "Spinach and Feta Pizza",
+    description: "Healthy and flavorful spinach and feta pizza.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
@@ -392,6 +414,7 @@ export const mockItemsData = [
   },
   {
     title: "Pizza Paperoni",
+    description: "Classic pepperoni pizza with mushrooms and bell peppers.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
@@ -411,6 +434,7 @@ export const mockItemsData = [
   },
   {
     title: "Margherita Pizza",
+    description: "Traditional margherita pizza with fresh tomatoes and basil.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
@@ -430,6 +454,7 @@ export const mockItemsData = [
   },
   {
     title: "Vegetarian Pizza",
+    description: "Colorful vegetarian pizza with a variety of veggies.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
@@ -449,6 +474,7 @@ export const mockItemsData = [
   },
   {
     title: "Hawaiian Pizza",
+    description: "Tropical Hawaiian pizza with ham and pineapple",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
@@ -468,6 +494,7 @@ export const mockItemsData = [
   },
   {
     title: "BBQ Chicken Pizza",
+    description: "Smoky barbecue chicken pizza with onions and peppers.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
@@ -487,6 +514,7 @@ export const mockItemsData = [
   },
   {
     title: "Supreme Pizza",
+    description: "Supreme pizza loaded with assorted toppings.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
@@ -506,6 +534,7 @@ export const mockItemsData = [
   },
   {
     title: "Mushroom Pizza",
+    description: "Mushroom lover delight with a mix of varieties.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
@@ -525,6 +554,8 @@ export const mockItemsData = [
   },
   {
     title: "Four Cheese Pizza",
+    description: "Rich and indulgent pizza topped with four cheeses.",
+
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
@@ -544,6 +575,7 @@ export const mockItemsData = [
   },
   {
     title: "Pepperoni and Mushroom Pizza",
+    description: "Perfect combination of pepperoni and mushrooms.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
@@ -563,6 +595,7 @@ export const mockItemsData = [
   },
   {
     title: "Spinach and Feta Pizza",
+    description: "Healthy and flavorful spinach and feta pizza.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
@@ -582,6 +615,7 @@ export const mockItemsData = [
   },
   {
     title: "Pizza Paperoni",
+    description: "Classic pepperoni pizza with mushrooms and bell peppers.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
@@ -601,6 +635,7 @@ export const mockItemsData = [
   },
   {
     title: "Margherita Pizza",
+    description: "Traditional margherita pizza with fresh tomatoes and basil.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
@@ -620,6 +655,7 @@ export const mockItemsData = [
   },
   {
     title: "Vegetarian Pizza",
+    description: "Colorful vegetarian pizza with a variety of veggies.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
@@ -639,6 +675,7 @@ export const mockItemsData = [
   },
   {
     title: "Hawaiian Pizza",
+    description: "Tropical Hawaiian pizza with ham and pineapple",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
@@ -658,6 +695,7 @@ export const mockItemsData = [
   },
   {
     title: "BBQ Chicken Pizza",
+    description: "Smoky barbecue chicken pizza with onions and peppers.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
@@ -677,6 +715,7 @@ export const mockItemsData = [
   },
   {
     title: "Supreme Pizza",
+    description: "Supreme pizza loaded with assorted toppings.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
@@ -696,6 +735,7 @@ export const mockItemsData = [
   },
   {
     title: "Mushroom Pizza",
+    description: "Mushroom lover delight with a mix of varieties.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
@@ -715,6 +755,8 @@ export const mockItemsData = [
   },
   {
     title: "Four Cheese Pizza",
+    description: "Rich and indulgent pizza topped with four cheeses.",
+
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
@@ -734,6 +776,7 @@ export const mockItemsData = [
   },
   {
     title: "Pepperoni and Mushroom Pizza",
+    description: "Perfect combination of pepperoni and mushrooms.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
@@ -753,6 +796,7 @@ export const mockItemsData = [
   },
   {
     title: "Spinach and Feta Pizza",
+    description: "Healthy and flavorful spinach and feta pizza.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
@@ -772,6 +816,7 @@ export const mockItemsData = [
   },
   {
     title: "Pizza Paperoni",
+    description: "Classic pepperoni pizza with mushrooms and bell peppers.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
@@ -791,6 +836,7 @@ export const mockItemsData = [
   },
   {
     title: "Margherita Pizza",
+    description: "Traditional margherita pizza with fresh tomatoes and basil.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
@@ -810,6 +856,7 @@ export const mockItemsData = [
   },
   {
     title: "Vegetarian Pizza",
+    description: "Colorful vegetarian pizza with a variety of veggies.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
@@ -829,6 +876,7 @@ export const mockItemsData = [
   },
   {
     title: "Hawaiian Pizza",
+    description: "Tropical Hawaiian pizza with ham and pineapple",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
@@ -848,6 +896,7 @@ export const mockItemsData = [
   },
   {
     title: "BBQ Chicken Pizza",
+    description: "Smoky barbecue chicken pizza with onions and peppers.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
@@ -867,6 +916,7 @@ export const mockItemsData = [
   },
   {
     title: "Supreme Pizza",
+    description: "Supreme pizza loaded with assorted toppings.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
@@ -886,6 +936,7 @@ export const mockItemsData = [
   },
   {
     title: "Mushroom Pizza",
+    description: "Mushroom lover delight with a mix of varieties.",
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
@@ -905,6 +956,8 @@ export const mockItemsData = [
   },
   {
     title: "Four Cheese Pizza",
+    description: "Rich and indulgent pizza topped with four cheeses.",
+
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
@@ -924,6 +977,7 @@ export const mockItemsData = [
   },
   {
     title: "Pepperoni and Mushroom Pizza",
+    description: "Perfect combination of pepperoni and mushrooms.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
@@ -943,6 +997,7 @@ export const mockItemsData = [
   },
   {
     title: "Spinach and Feta Pizza",
+    description: "Healthy and flavorful spinach and feta pizza.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
@@ -965,6 +1020,8 @@ export const mockItemsData = [
 export const refreshMockItemsData = [
   {
     title: "Four Cheese Pizza",
+    description: "Rich and indulgent pizza topped with four cheeses.",
+
     isNew: false,
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
@@ -984,6 +1041,7 @@ export const refreshMockItemsData = [
   },
   {
     title: "Pepperoni and Mushroom Pizza",
+    description: "Perfect combination of pepperoni and mushrooms.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
@@ -1003,6 +1061,7 @@ export const refreshMockItemsData = [
   },
   {
     title: "Spinach and Feta Pizza",
+    description: "Healthy and flavorful spinach and feta pizza.",
     isNew: true,
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
