@@ -1,22 +1,48 @@
+import React, { useContext } from "react";
+import { Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 import HomeScreen from "../modules/Home/HomeScreen";
 import SettingsScreen from "../modules/Settings/SettingsScreen";
-import { colors } from "../utils/colors";
-import { StyleSheet } from "react-native";
 import HomeStack from "./HomeStack";
+import { ThemeContext } from "../core/theme";
 
 const Tab = createBottomTabNavigator();
 
+const Header = ({ title }) => {
+  const themeValue = useContext(ThemeContext);
+
+  return (
+    <Text
+      style={{
+        color: themeValue.theme.fontColor,
+        paddingTop: 50,
+        paddingBottom: 20,
+        backgroundColor: themeValue.theme.navigationTabColor,
+        color: themeValue.theme.fontColor,
+        fontSize: 20,
+        fontWeight: 900,
+        textAlign: "center",
+      }}
+    >
+      {title}
+    </Text>
+  );
+};
+
 const MyTabs = () => {
+  const themeValue = useContext(ThemeContext);
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={() => ({
-        tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: colors.iconsColor,
-        tabBarInactiveTintColor: colors.navigationStackColor,
+        tabBarStyle: {
+          backgroundColor: themeValue.theme.navigationTabColor,
+        },
+        tabBarActiveTintColor: themeValue.theme.fontColor,
+        tabBarInactiveTintColor: themeValue.theme.mainBgColor,
       })}
     >
       <Tab.Screen
@@ -24,7 +50,6 @@ const MyTabs = () => {
         component={HomeStack}
         options={{
           tabBarLabel: "Home",
-          headerStyle: styles.headerStyle,
           tabBarIcon: ({ focused, color, size }) => {
             const iconSize = focused ? 30 : 24;
             return (
@@ -35,16 +60,21 @@ const MyTabs = () => {
               />
             );
           },
+          header: () => {
+            return <Header title="---HOME---" />;
+          },
         }}
       />
       <Tab.Screen
         name="Settings"
         component={SettingsScreen}
         options={{
-          headerStyle: styles.headerStyle,
           tabBarIcon: ({ focused, color, size }) => {
             const iconSize = focused ? 30 : 24;
             return <Feather name="settings" color={color} size={iconSize} />;
+          },
+          header: () => {
+            return <Header title="---SETTINGS---" />;
           },
         }}
       />
@@ -61,12 +91,3 @@ const Navigator = () => {
 };
 
 export default Navigator;
-
-const styles = StyleSheet.create({
-  tabBar: {
-    backgroundColor: colors.navigationTabColor,
-  },
-  headerStyle: {
-    backgroundColor: colors.navigationTabColor,
-  },
-});

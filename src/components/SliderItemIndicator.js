@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
-import { colors } from "../utils/colors";
+import { ThemeContext } from "../core/theme";
 
 const SliderItemIndicator = ({ isActive }) => {
-  return <View style={[styles.indicator, isActive && styles.isActive]} />;
+  const themeValue = useContext(ThemeContext);
+
+  return (
+    <View
+      style={[
+        styles.indicator,
+        { backgroundColor: themeValue.theme.buttonBgColor },
+        isActive && { backgroundColor: themeValue.theme.iconsColor },
+      ]}
+    />
+  );
 };
 
 export default SliderItemIndicator;
@@ -13,9 +23,5 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
     borderRadius: 8,
-    backgroundColor: colors.buttonBgColor,
-  },
-  isActive: {
-    backgroundColor: colors.iconsColor,
   },
 });
