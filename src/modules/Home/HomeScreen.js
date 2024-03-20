@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -14,9 +14,9 @@ import { AntDesign } from "@expo/vector-icons";
 import { mockItemsData, refreshMockItemsData } from "../../utils/mock-data";
 import ItemPizza from "../../components/ItemPizza";
 import ButtonWrapper from "../../components/ButtonWrapper";
-import { colors } from "../../utils/colors";
 import { widthSlider } from "../../utils/widthSlider";
 import Slide from "../../components/Slide";
+import { ThemeContext } from "../../core/theme";
 
 const HomeScreen = ({ navigation }) => {
   const initialFilters = {
@@ -30,6 +30,8 @@ const HomeScreen = ({ navigation }) => {
   const [filters, setFilters] = useState(initialFilters);
   const [inputValue, setInputValue] = useState("");
   const [refreshing, setRefreshing] = useState(false);
+
+  const themeValue = useContext(ThemeContext);
 
   useEffect(() => {
     onEndReached();
@@ -100,12 +102,30 @@ const HomeScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: themeValue.theme.mainBgColor },
+      ]}
+    >
+      <View
+        style={[
+          styles.header,
+          {
+            backgroundColor: themeValue.theme.itemPizzaBgColor,
+            borderColor: themeValue.theme.mainBorderColor,
+          },
+        ]}
+      >
         <View style={styles.headerTop}>
           {isVisibleInputSearch ? (
             <TextInput
-              style={styles.input}
+              style={[
+                styles.input,
+                {
+                  backgroundColor: themeValue.theme.buttonBgColor,
+                },
+              ]}
               onChangeText={onChangeInputSearch}
               value={inputValue}
               placeholder="search"
@@ -117,7 +137,11 @@ const HomeScreen = ({ navigation }) => {
             isCustomStyle={false}
             isRipple={false}
           >
-            <AntDesign name="heart" size={24} color={colors.iconsColorRed} />
+            <AntDesign
+              name="heart"
+              size={24}
+              color={themeValue.theme.iconsColorRed}
+            />
           </ButtonWrapper>
           <ButtonWrapper
             style={styles.buttonSearch}
@@ -125,11 +149,15 @@ const HomeScreen = ({ navigation }) => {
             isCustomStyle={false}
             isRipple={false}
           >
-            <AntDesign name="search1" size={24} color={colors.iconsColor} />
+            <AntDesign
+              name="search1"
+              size={24}
+              color={themeValue.theme.iconsColor}
+            />
           </ButtonWrapper>
         </View>
         <ButtonWrapper onPress={handleFilterModal} style={styles.headerBottom}>
-          <Text>Filters</Text>
+          <Text style={[{ color: themeValue.theme.fontColor }]}>Filters</Text>
         </ButtonWrapper>
       </View>
       {filteredItems.length ? (
@@ -148,7 +176,9 @@ const HomeScreen = ({ navigation }) => {
           onEndReachedThreshold={0.4}
         />
       ) : (
-        <Text>No data</Text>
+        <Text style={[{ backgroundColor: themeValue.theme.modalBgColor }]}>
+          No data
+        </Text>
       )}
 
       <Modal
@@ -160,13 +190,20 @@ const HomeScreen = ({ navigation }) => {
         <TouchableWithoutFeedback onPress={handleFilterModal}>
           <View style={styles.modalOverlay} />
         </TouchableWithoutFeedback>
-        <View style={styles.filterModal}>
+        <View
+          style={[
+            styles.filterModal,
+            { backgroundColor: themeValue.theme.modalBgColor },
+          ]}
+        >
           <Checkbox
             value={filters.isNew}
             onValueChange={(value) => handleFilters("isNew", value)}
             style={styles.filterModalCheckbox}
           />
-          <Text style={styles.label}>Only new</Text>
+          <Text style={[styles.label, { color: themeValue.theme.fontColor }]}>
+            Only new
+          </Text>
         </View>
       </Modal>
     </View>
@@ -178,7 +215,6 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.mainBgColor,
     alignItems: "center",
     justifyContent: "flex-start",
   },
@@ -188,8 +224,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: colors.mainBorderColor,
-    backgroundColor: colors.itemPizzaBgColor,
   },
   headerTop: {
     width: "100%",
@@ -204,7 +238,6 @@ const styles = StyleSheet.create({
   input: {
     paddingLeft: 10,
     flexGrow: 1,
-    backgroundColor: colors.buttonBgColor,
     borderRadius: 5,
   },
   buttonHearth: {
@@ -226,7 +259,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 10,
-    backgroundColor: colors.modalBgColor,
     borderTopRightRadius: 25,
     borderBottomRightRadius: 25,
   },

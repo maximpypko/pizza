@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   View,
   Text,
@@ -8,8 +8,11 @@ import {
   Share,
 } from "react-native";
 import { widthSlider } from "../utils/widthSlider";
+import { ThemeContext } from "../core/theme";
 
 const Slide = ({ item }) => {
+  const themeValue = useContext(ThemeContext);
+
   return (
     <TouchableOpacity
       onPress={() => {
@@ -20,7 +23,9 @@ const Slide = ({ item }) => {
       }}
     >
       <View style={styles.slide}>
-        <Text style={styles.title}>{item.title}</Text>
+        <Text style={[styles.title, { color: themeValue.theme.fontColor }]}>
+          {item.title}
+        </Text>
         <Image
           style={styles.image}
           source={{

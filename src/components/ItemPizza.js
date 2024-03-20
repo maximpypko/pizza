@@ -1,12 +1,14 @@
-import React, { useState, memo } from "react";
+import React, { useState, memo, useContext } from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import { colors } from "../utils/colors";
 import ButtonWrapper from "./ButtonWrapper";
+import { ThemeContext } from "../core/theme";
 
 const ItemPizza = ({ item, onPressItemPizza, disabledItemPizza }) => {
   const { title, isNew, image, id, photos } = item;
   const [isFavorites, setIsFavorites] = useState(item.isFavorites);
+
+  const themeValue = useContext(ThemeContext);
 
   onPressButtonHeart = () => {
     setIsFavorites(!isFavorites);
@@ -20,9 +22,16 @@ const ItemPizza = ({ item, onPressItemPizza, disabledItemPizza }) => {
     <Pressable
       onPress={() => onPressItemPizza(item)}
       disabled={disabledItemPizza}
-      android_ripple={styles.ripple}
-      style={styles.container}
-      style={() => [styles.container, styles.ripple]}
+      android_ripple={[styles.ripple, { color: themeValue.theme.rippleColor }]}
+      style={[
+        styles.container,
+        {
+          backgroundColor: themeValue.theme.itemPizzaBgColor,
+          borderColor: themeValue.theme.mainBorderColor,
+          shadowColor: themeValue.theme.shadowColor,
+        },
+        styles.ripple,
+      ]}
     >
       <View style={styles.itemImage}>
         <Image
@@ -31,11 +40,26 @@ const ItemPizza = ({ item, onPressItemPizza, disabledItemPizza }) => {
             uri: image,
           }}
         />
-        {isNew && <Text style={styles.mark}>New</Text>}
+        {isNew && (
+          <Text
+            style={[
+              styles.mark,
+              {
+                backgroundColor: themeValue.theme.mainBgColor,
+                borderColor: themeValue.theme.mainBorderColor,
+                color: themeValue.theme.fontColor,
+              },
+            ]}
+          >
+            New
+          </Text>
+        )}
       </View>
       <View style={styles.info}>
         <View style={styles.header}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={[styles.title, { color: themeValue.theme.fontColor }]}>
+            {title}
+          </Text>
           <ButtonWrapper
             onPress={onPressButtonHeart}
             isCustomStyle={false}
@@ -49,12 +73,25 @@ const ItemPizza = ({ item, onPressItemPizza, disabledItemPizza }) => {
           </ButtonWrapper>
         </View>
         <View style={styles.prices}>
-          {isNew && <Text style={styles.newPrices}>New Price</Text>}
-          <Text style={isNew && styles.oldPrices}>Old Price</Text>
+          {isNew && (
+            <Text
+              style={[styles.newPrices, { color: themeValue.theme.fontColor }]}
+            >
+              New Price
+            </Text>
+          )}
+          <Text
+            style={[
+              isNew && styles.oldPrices,
+              { color: themeValue.theme.fontColor },
+            ]}
+          >
+            Old Price
+          </Text>
         </View>
         <View style={styles.footer}>
           <Text
-            style={styles.description}
+            style={[styles.description, { color: themeValue.theme.fontColor }]}
             numberOfLines={1}
             ellipsizeMode="tail"
           >
@@ -62,11 +99,18 @@ const ItemPizza = ({ item, onPressItemPizza, disabledItemPizza }) => {
             ingredients.
           </Text>
           <ButtonWrapper onPress={onPressButtonBuy} style={styles.buttonBuy}>
-            <Text style={styles.description}>Buy</Text>
+            <Text
+              style={[
+                styles.description,
+                { color: themeValue.theme.fontColor },
+              ]}
+            >
+              Buy
+            </Text>
             <MaterialCommunityIcons
               name="cart-variant"
               size={24}
-              color="black"
+              color={themeValue.theme.iconsColor}
             />
           </ButtonWrapper>
         </View>
@@ -79,7 +123,6 @@ export default memo(ItemPizza);
 
 const styles = StyleSheet.create({
   ripple: {
-    color: colors.rippleColor,
     borderless: false,
   },
   container: {
@@ -90,12 +133,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 10,
     gap: 15,
-    backgroundColor: colors.itemPizzaBgColor,
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: colors.mainBorderColor,
     borderRadius: 5,
-    shadowColor: colors.shadowColor,
     shadowOffset: {
       width: 1,
       height: 4,
@@ -116,10 +156,8 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     paddingBottom: 3,
     paddingLeft: 5,
-    backgroundColor: colors.mainBgColor,
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: colors.mainBorderColor,
     borderRadius: 15,
     fontSize: 11,
     overflow: "hidden",
@@ -161,13 +199,14 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexDirection: "row",
-    alignItems: "flex-center",
+    alignItems: "center",
     gap: 10,
   },
   description: {
     flexShrink: 1,
   },
   buttonBuy: {
+    padding: 5,
     flexDirection: "row",
     gap: 5,
   },

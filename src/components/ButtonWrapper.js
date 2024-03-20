@@ -1,5 +1,6 @@
+import React, { useContext } from "react";
 import { View, Pressable, StyleSheet } from "react-native";
-import { colors } from "../utils/colors";
+import { ThemeContext } from "../core/theme";
 
 const ButtonWrapper = ({
   children,
@@ -10,19 +11,33 @@ const ButtonWrapper = ({
   isCustomStyle = true,
   isRipple = true,
 }) => {
+  const themeValue = useContext(ThemeContext);
+
   return (
-    <View style={isCustomStyle && styles.container}>
+    <View
+      style={
+        isCustomStyle && [
+          styles.container,
+          { borderColor: themeValue.theme.mainBorderColor },
+        ]
+      }
+    >
       <Pressable
         onPress={onPress}
         disabled={disabled}
-        android_ripple={isRipple && styles.ripple}
+        android_ripple={
+          isRipple && [styles.ripple, { color: themeValue.theme.rippleColor }]
+        }
         style={({ pressed }) => [
           styles.buttonStyle,
           !withoutFeedback && {
-            ...(isCustomStyle && styles.customStyles),
+            ...(isCustomStyle && [
+              styles.customStyles,
+              { backgroundColor: themeValue.theme.buttonBgColor },
+            ]),
             ...(pressed && styles.pressedButtonStyle),
             ...(disabled && styles.disabledButtonStyle),
-            ...styles.ripple,
+            ...[styles.ripple, { color: themeValue.theme.rippleColor }],
             ...style,
           },
         ]}
@@ -37,7 +52,6 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 2,
     borderStyle: "solid",
-    borderColor: colors.mainBorderColor,
     borderRadius: 5,
   },
   customStyles: {
@@ -45,7 +59,6 @@ const styles = StyleSheet.create({
     paddingBottom: 2,
     paddingRight: 10,
     paddingLeft: 10,
-    backgroundColor: colors.buttonBgColor,
   },
   buttonStyle: {
     opacity: 1,
@@ -57,7 +70,6 @@ const styles = StyleSheet.create({
     opacity: 0.4,
   },
   ripple: {
-    color: colors.rippleColor,
     borderless: false,
   },
 });

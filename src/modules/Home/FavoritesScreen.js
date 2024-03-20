@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,17 +7,20 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from "react-native";
-import { colors } from "../../utils/colors";
 import { widthSlider } from "../../utils/widthSlider";
 import ButtonWrapper from "../../components/ButtonWrapper";
 import Slide from "../../components/Slide";
 import SliderItemIndicator from "../../components/SliderItemIndicator";
+import { ThemeContext } from "../../core/theme";
 
 const FavoritesScreen = ({ route }) => {
   const { favoritesItems } = route.params;
   const [indexActiveSlide, setIndexActiveSlide] = useState(0);
   const sliderRef = useRef();
   const autoscrollTime = 5000;
+
+  const themeValue = useContext(ThemeContext);
+
   useEffect(() => {
     let scrollInterval;
 
@@ -65,7 +68,14 @@ const FavoritesScreen = ({ route }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: themeValue.theme.mainBgColor,
+        },
+      ]}
+    >
       {favoritesItems?.length > 0 ? (
         <>
           <FlatList
@@ -101,7 +111,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: colors.mainBgColor,
     paddingTop: 30,
   },
   title: {
