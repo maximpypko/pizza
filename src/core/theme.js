@@ -14,6 +14,7 @@ const lightTheme = {
   navigationTabColor: "#7D8882",
   navigationStackColor: "#93A099",
   fontColor: "black",
+  buttonCheckoutColor: "green",
 };
 
 export const darkTheme = {
@@ -29,6 +30,7 @@ export const darkTheme = {
   navigationTabColor: "#1E2227",
   navigationStackColor: "#23272E",
   fontColor: "#A6B4CD",
+  buttonCheckoutColor: "green",
 };
 
 export const ThemeContext = createContext(null);

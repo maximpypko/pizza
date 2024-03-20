@@ -1,12 +1,19 @@
 import React, { useContext } from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  Feather,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
+import { observer } from "mobx-react";
 import HomeScreen from "../modules/Home/HomeScreen";
 import SettingsScreen from "../modules/Settings/SettingsScreen";
+import BasketScreen from "../modules/Basket/BasketScreen";
 import HomeStack from "./HomeStack";
 import { ThemeContext } from "../core/theme";
+import basketStore from "../modules/Basket/BasketStore";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,6 +37,31 @@ const Header = ({ title }) => {
     </Text>
   );
 };
+
+const TabBarIconBasket = observer(({ size, color }) => {
+  const themeValue = useContext(ThemeContext);
+
+  const getTotalPrice = () => {
+    let amount = 0;
+    for (const item of basketStore.orders) {
+      amount += item.amount;
+    }
+    return amount;
+  };
+
+  return (
+    <View style={{ flexDirection: "row", alignItems: "center", gap: 3 }}>
+      <Text
+        style={{
+          color,
+        }}
+      >
+        {getTotalPrice()}
+      </Text>
+      <SimpleLineIcons name="basket" size={size} color={color} />
+    </View>
+  );
+});
 
 const MyTabs = () => {
   const themeValue = useContext(ThemeContext);
@@ -75,6 +107,19 @@ const MyTabs = () => {
           },
           header: () => {
             return <Header title="---SETTINGS---" />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Basket"
+        component={BasketScreen}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            const iconSize = focused ? 30 : 24;
+            return <TabBarIconBasket size={iconSize} color={color} />;
+          },
+          header: () => {
+            return <Header title="---Basket---" />;
           },
         }}
       />

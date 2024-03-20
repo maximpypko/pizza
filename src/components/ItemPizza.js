@@ -1,8 +1,10 @@
-import React, { useState, memo, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import { observer } from "mobx-react";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import ButtonWrapper from "./ButtonWrapper";
 import { ThemeContext } from "../core/theme";
+import basketStore from "../modules/Basket/BasketStore";
 
 const ItemPizza = ({ item, onPressItemPizza, disabledItemPizza }) => {
   const { title, isNew, image, id, photos } = item;
@@ -15,7 +17,7 @@ const ItemPizza = ({ item, onPressItemPizza, disabledItemPizza }) => {
   };
 
   onPressButtonBuy = () => {
-    console.warn("You have added an item to your cart");
+    basketStore.setOrders("add", item);
   };
 
   return (
@@ -119,7 +121,7 @@ const ItemPizza = ({ item, onPressItemPizza, disabledItemPizza }) => {
   );
 };
 
-export default memo(ItemPizza);
+export default observer(ItemPizza);
 
 const styles = StyleSheet.create({
   ripple: {
