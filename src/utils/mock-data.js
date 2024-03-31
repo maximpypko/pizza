@@ -6,6 +6,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
     isFavorites: false,
+    price: 1,
     id: 1,
     photos: [
       {
@@ -26,6 +27,8 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
     isFavorites: true,
+
+    price: 2,
     id: 2,
     photos: [
       {
@@ -46,6 +49,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
     isFavorites: false,
+    price: 3,
     id: 3,
     photos: [
       {
@@ -66,6 +70,8 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
     isFavorites: true,
+
+    price: 4,
     id: 4,
     photos: [
       {
@@ -86,6 +92,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
     isFavorites: false,
+    price: 5,
     id: 5,
     photos: [
       {
@@ -117,6 +124,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
     isFavorites: false,
+    price: 3,
     id: 6,
     photos: [
       {
@@ -137,6 +145,8 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
     isFavorites: true,
+
+    price: 2,
     id: 7,
     photos: [
       {
@@ -158,6 +168,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
     isFavorites: false,
+    price: 2,
     id: 8,
     photos: [
       {
@@ -178,6 +189,8 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
     isFavorites: true,
+
+    price: 5,
     id: 9,
     photos: [
       {
@@ -198,6 +211,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
     isFavorites: false,
+    price: 1,
     id: 10,
     photos: [
       {
@@ -218,6 +232,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
     isFavorites: false,
+    price: 5,
     id: 11,
     photos: [
       {
@@ -238,6 +253,8 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
     isFavorites: true,
+
+    price: 7,
     id: 12,
     photos: [
       {
@@ -258,6 +275,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
     isFavorites: false,
+    price: 2,
     id: 13,
     photos: [
       {
@@ -278,6 +296,8 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
     isFavorites: true,
+
+    price: 5,
     id: 14,
     photos: [
       {
@@ -298,6 +318,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
     isFavorites: false,
+    price: 7,
     id: 15,
     photos: [
       {
@@ -318,6 +339,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
     isFavorites: false,
+    price: 7,
     id: 16,
     photos: [
       {
@@ -338,6 +360,8 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
     isFavorites: true,
+
+    price: 4,
     id: 17,
     photos: [
       {
@@ -359,6 +383,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
     isFavorites: false,
+    price: 3,
     id: 18,
     photos: [
       {
@@ -379,6 +404,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
     isFavorites: false,
+    price: 3,
     id: 19,
     photos: [
       {
@@ -399,6 +425,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
     isFavorites: false,
+    price: 6,
     id: 20,
     photos: [
       {
@@ -419,6 +446,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
     isFavorites: false,
+    price: 2,
     id: 21,
     photos: [
       {
@@ -439,6 +467,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
     isFavorites: false,
+    price: 4,
     id: 22,
     photos: [
       {
@@ -459,6 +488,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
     isFavorites: false,
+    price: 6,
     id: 23,
     photos: [
       {
@@ -479,6 +509,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
     isFavorites: false,
+    price: 2,
     id: 24,
     photos: [
       {
@@ -499,6 +530,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
     isFavorites: false,
+    price: 4,
     id: 25,
     photos: [
       {
@@ -519,6 +551,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
     isFavorites: false,
+    price: 5,
     id: 26,
     photos: [
       {
@@ -539,6 +572,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
     isFavorites: false,
+    price: 3,
     id: 27,
     photos: [
       {
@@ -560,6 +594,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
     isFavorites: false,
+    price: 7,
     id: 28,
     photos: [
       {
@@ -580,6 +615,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
     isFavorites: false,
+    price: 3,
     id: 29,
     photos: [
       {
@@ -600,6 +636,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
     isFavorites: false,
+    price: 3,
     id: 30,
     photos: [
       {
@@ -620,6 +657,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
     isFavorites: false,
+    price: 2,
     id: 31,
     photos: [
       {
@@ -640,6 +678,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
     isFavorites: false,
+    price: 2,
     id: 32,
     photos: [
       {
@@ -660,6 +699,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
     isFavorites: false,
+    price: 5,
     id: 33,
     photos: [
       {
@@ -680,6 +720,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
     isFavorites: false,
+    price: 3,
     id: 34,
     photos: [
       {
@@ -700,6 +741,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
     isFavorites: false,
+    price: 6,
     id: 35,
     photos: [
       {
@@ -720,6 +762,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
     isFavorites: false,
+    price: 2,
     id: 36,
     photos: [
       {
@@ -740,6 +783,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
     isFavorites: false,
+    price: 3,
     id: 37,
     photos: [
       {
@@ -761,6 +805,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
     isFavorites: false,
+    price: 2,
     id: 38,
     photos: [
       {
@@ -781,6 +826,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
     isFavorites: false,
+    price: 6,
     id: 39,
     photos: [
       {
@@ -801,6 +847,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
     isFavorites: false,
+    price: 2,
     id: 40,
     photos: [
       {
@@ -821,6 +868,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
     isFavorites: false,
+    price: 4,
     id: 41,
     photos: [
       {
@@ -841,6 +889,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-margarita-pizza_144627-52266.jpg",
     isFavorites: false,
+    price: 5,
     id: 42,
     photos: [
       {
@@ -861,6 +910,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-pizza-top-view_140725-35634.jpg",
     isFavorites: false,
+    price: 3,
     id: 43,
     photos: [
       {
@@ -881,6 +931,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/top-view-hawaiian-pizza-with-ingredients_140725-37660.jpg",
     isFavorites: false,
+    price: 3,
     id: 44,
     photos: [
       {
@@ -901,6 +952,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/delicious-barbecue-chicken-pizza_144627-35480.jpg",
     isFavorites: false,
+    price: 2,
     id: 45,
     photos: [
       {
@@ -921,6 +973,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/supreme-pizza-wooden-table_135582-10441.jpg",
     isFavorites: false,
+    price: 8,
     id: 46,
     photos: [
       {
@@ -941,6 +994,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/vegetarian-mushroom-pizza-white-background_114579-5175.jpg",
     isFavorites: false,
+    price: 3,
     id: 47,
     photos: [
       {
@@ -962,6 +1016,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
     isFavorites: false,
+    price: 3,
     id: 48,
     photos: [
       {
@@ -982,6 +1037,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
     isFavorites: false,
+    price: 2,
     id: 49,
     photos: [
       {
@@ -1002,6 +1058,7 @@ export const mockItemsData = [
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
     isFavorites: false,
+    price: 1,
     id: 50,
     photos: [
       {
@@ -1026,6 +1083,7 @@ export const refreshMockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-quattro-formaggi-top-view_1150-13536.jpg",
     isFavorites: false,
+    price: 3,
     id: 51,
     photos: [
       {
@@ -1046,6 +1104,7 @@ export const refreshMockItemsData = [
     image:
       "https://img.freepik.com/free-photo/pizza-pepperoni-mushroom-wooden-table_23-2148669725.jpg",
     isFavorites: false,
+    price: 5,
     id: 52,
     photos: [
       {
@@ -1066,6 +1125,7 @@ export const refreshMockItemsData = [
     image:
       "https://img.freepik.com/free-photo/spinach-feta-pizza-top-view-wooden-table_23-2148669304.jpg",
     isFavorites: false,
+    price: 3,
     id: 53,
     photos: [
       {

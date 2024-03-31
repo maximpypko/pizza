@@ -7,18 +7,24 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from "react-native";
+import { observer } from "mobx-react";
 import { widthSlider } from "../../utils/widthSlider";
 import ButtonWrapper from "../../components/ButtonWrapper";
 import Slide from "../../components/Slide";
 import SliderItemIndicator from "../../components/SliderItemIndicator";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ThemeContext } from "../../core/theme";
+import basketStore from "../Basket/BasketStore";
 
 const DescriptionPizzaScreen = ({ route }) => {
-  const {
-    item: { title, photos, description },
-  } = route.params;
+  const { item } = route.params;
+  const { title, photos, description } = item;
 
   const themeValue = useContext(ThemeContext);
+
+  onPressButtonBuy = () => {
+    basketStore.setOrders("add", item);
+  };
 
   return (
     <View
@@ -39,11 +45,23 @@ const DescriptionPizzaScreen = ({ route }) => {
       ) : (
         <Text style={styles.description}>No description</Text>
       )}
+      <ButtonWrapper onPress={onPressButtonBuy} style={styles.buttonBuy}>
+        <Text
+          style={[styles.description, { color: themeValue.theme.fontColor }]}
+        >
+          Buy
+        </Text>
+        <MaterialCommunityIcons
+          name="cart-variant"
+          size={24}
+          color={themeValue.theme.iconsColor}
+        />
+      </ButtonWrapper>
     </View>
   );
 };
 
-export default DescriptionPizzaScreen;
+export default observer(DescriptionPizzaScreen);
 
 const styles = StyleSheet.create({
   container: {
@@ -57,5 +75,11 @@ const styles = StyleSheet.create({
   },
   description: {
     marginBottom: 20,
+  },
+  buttonBuy: {
+    flexDirection: "row",
+    gap: 10,
+    padding: 10,
+    paddingBottom: 0,
   },
 });
