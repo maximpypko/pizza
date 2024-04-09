@@ -16,6 +16,15 @@ import ItemPizza from "../../components/ItemPizza";
 import ButtonWrapper from "../../components/ButtonWrapper";
 import { widthSlider } from "../../utils/widthSlider";
 import Slide from "../../components/Slide";
+import Animated, {
+  LightSpeedInLeft,
+  LightSpeedOutLeft,
+  useSharedValue,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  interpolate,
+  Extrapolation,
+} from "react-native-reanimated";
 import { ThemeContext } from "../../core/theme";
 
 const HomeScreen = ({ navigation }) => {
@@ -31,11 +40,30 @@ const HomeScreen = ({ navigation }) => {
   const [inputValue, setInputValue] = useState("");
   const [refreshing, setRefreshing] = useState(false);
 
+  const scrollY = useSharedValue(100);
+
   const themeValue = useContext(ThemeContext);
 
   useEffect(() => {
     onEndReached();
   }, []);
+
+  const scrollHandler = useAnimatedScrollHandler((event) => {
+    scrollY.value = event.contentOffset.y;
+  });
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(
+        scrollY.value,
+        [100, 0],
+        [0, 1],
+        Extrapolation.CLAMP
+      ),
+      height:
+        interpolate(scrollY.value, [200, 0], [0, 1], Extrapolation.CLAMP) * 100,
+    };
+  });
 
   const handleFilterModal = () => {
     setIsVisibleFilterModal(!isVisibleFilterModal);
@@ -108,9 +136,10 @@ const HomeScreen = ({ navigation }) => {
         { backgroundColor: themeValue.theme.mainBgColor },
       ]}
     >
-      <View
+      <Animated.View
         style={[
           styles.header,
+          animatedStyle,
           {
             backgroundColor: themeValue.theme.itemPizzaBgColor,
             borderColor: themeValue.theme.mainBorderColor,
@@ -119,18 +148,27 @@ const HomeScreen = ({ navigation }) => {
       >
         <View style={styles.headerTop}>
           {isVisibleInputSearch ? (
-            <TextInput
-              style={[
-                styles.input,
-                {
-                  backgroundColor: themeValue.theme.buttonBgColor,
-                },
-              ]}
-              onChangeText={onChangeInputSearch}
-              value={inputValue}
-              placeholder="search"
-            />
+            <Animated.View
+              entering={LightSpeedInLeft}
+              exiting={LightSpeedOutLeft}
+              style={[styles.inputContainer]}
+            >
+              <TextInput
+                style={[
+                  styles.input,
+                  {
+                    backgroundColor: themeValue.theme.buttonBgColor,
+                    color: themeValue.theme.fontColor,
+                  },
+                ]}
+                onChangeText={onChangeInputSearch}
+                value={inputValue}
+                placeholder="search"
+                placeholderTextColor={themeValue.theme.fontColor}
+              />
+            </Animated.View>
           ) : null}
+
           <ButtonWrapper
             style={styles.buttonHearth}
             onPress={onPressButtonHearth}
@@ -159,9 +197,9 @@ const HomeScreen = ({ navigation }) => {
         <ButtonWrapper onPress={handleFilterModal} style={styles.headerBottom}>
           <Text style={[{ color: themeValue.theme.fontColor }]}>Filters</Text>
         </ButtonWrapper>
-      </View>
+      </Animated.View>
       {filteredItems.length ? (
-        <FlatList
+        <Animated.FlatList
           data={filteredItems}
           renderItem={({ item, index }) => (
             <ItemPizza item={item} onPressItemPizza={onPressItemPizza} />
@@ -174,6 +212,7 @@ const HomeScreen = ({ navigation }) => {
           initialNumToRender={10}
           onEndReached={onEndReached}
           onEndReachedThreshold={0.4}
+          onScroll={scrollHandler}
         />
       ) : (
         <Text style={[{ backgroundColor: themeValue.theme.modalBgColor }]}>
@@ -220,8 +259,9 @@ const styles = StyleSheet.create({
   },
   header: {
     gap: 10,
-    padding: 10,
-    marginBottom: 10,
+    paddingTop: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
     borderWidth: 1,
     borderStyle: "solid",
   },
@@ -235,10 +275,13 @@ const styles = StyleSheet.create({
   headerBottom: {
     alignItems: "center",
   },
-  input: {
-    paddingLeft: 10,
+  inputContainer: {
     flexGrow: 1,
+  },
+  input: {
+    padding: 8,
     borderRadius: 5,
+    color: "red",
   },
   buttonHearth: {
     padding: 10,
@@ -248,6 +291,7 @@ const styles = StyleSheet.create({
   },
   itemsWrapper: {
     width: "100%",
+    paddingTop: 10,
   },
   filterModal: {
     position: "absolute",
